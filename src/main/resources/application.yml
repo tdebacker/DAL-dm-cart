@@ -1,0 +1,15 @@
+server:
+  error:
+    whitelabel:
+      enabled: false
+spring:
+  profiles:
+    active:
+      - local
+  main:
+    web-application-type: servlet
+    banner-mode: off
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp

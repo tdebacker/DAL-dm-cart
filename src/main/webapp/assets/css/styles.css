@@ -1,0 +1,17 @@
+.copyright {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 13px;
+    color: #aaa;
+    margin-bottom: 0
+}
+.title {
+    font-family: 'Montserrat', sans-serif;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.titleLink, .titleLink:hover, .titleLink:focus, .titleLink:active {
+    text-decoration: none;
+    color: inherit;
+}
