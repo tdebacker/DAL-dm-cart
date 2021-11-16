@@ -26,7 +26,7 @@ public class CartRestController {
      * @return The newly created cart.
      */
     @PostMapping
-    public Cart createRoom() {
-        return cartService.createCart();
+    public Cart createCart() {
+        return cartService.createCart(1L);
     }
 }

@@ -22,8 +22,12 @@ public class CartService {
      *
      * @return The newly created cart.
      */
-    public Cart createCart() {
-        return cartRepository.save(new Cart());
+    public Cart createCart(Long id) {
+        return cartRepository.save(new Cart(id));
+    }
+
+    public Cart findCart(Long id) {
+        return cartRepository.findById(id).get();
     }
 
 }

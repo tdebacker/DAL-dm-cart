@@ -5,6 +5,8 @@ import fr.lille.univ.DALdmcart.repository.ArticleRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Service to manage articles.
  */
@@ -26,4 +28,11 @@ public class ArticleService {
         return articleRepository.save(new Article(null, price, name, img));
     }
 
+    public List<Article> getArticles() {
+        return articleRepository.findAll();
+    }
+
+    public Article getByArticleId(Long id) {
+        return articleRepository.findById(id).get();
+    }
 }

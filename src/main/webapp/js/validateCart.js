@@ -5,7 +5,6 @@ const validateCart = () => {
         dataType: "json",
         contentType: 'application/json'
     }).done((response) => {
-        // document.location.href = `/authenticate` //todo: redirect to the broker endpoint
-        alert("Le panier est enregistré!")
+        window.location.href = "http://172.18.13.117:8080/authenticate?callback=172.18.13.109:8080&operation=validate"
     })
 }
