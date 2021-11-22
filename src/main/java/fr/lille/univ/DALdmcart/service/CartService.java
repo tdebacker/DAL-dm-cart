@@ -5,6 +5,8 @@ import fr.lille.univ.DALdmcart.repository.CartRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Service to manage carts.
  */
@@ -26,8 +28,16 @@ public class CartService {
         return cartRepository.save(new Cart(id));
     }
 
+    public List<Cart> findCarts() {
+        return cartRepository.findAll();
+    }
+
     public Cart findCart(Long id) {
-        return cartRepository.findById(id).get();
+        return cartRepository.findById(id).orElseThrow();
+    }
+
+    public Cart updateCart(Cart cart) {
+        return cartRepository.save(cart);
     }
 
 }

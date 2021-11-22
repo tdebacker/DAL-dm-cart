@@ -32,11 +32,17 @@ public class ArticleRestController {
         return articleService.getArticles();
     }
 
+    @GetMapping("/{id}")
+    public Article getArticleById(@PathVariable("id") Long id) {
+        return articleService.getByArticleId(id);
+    }
+
     @PostMapping("/{id}")
     public Cart addArticle(@PathVariable("id") Long id) {
         Article article = articleService.getByArticleId(id);
         Cart cart = cartService.findCart(1L);
         cart.getArticles().add(article);
+        cart = cartService.updateCart(cart);
         return cart;
     }
 

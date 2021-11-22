@@ -37,12 +37,15 @@
                             Prix: <fmt:formatNumber type="currency" currencySymbol="&euro;"
                                                     value="${article.price/100.0}"/>
                         </p>
-                        <button class="btn btn-primary btn-sm" type="submit" onclick="addArticle()">Ajouter l'article</button>
+                        <button class="btn btn-primary btn-sm" type="submit" onclick="addArticle(${article.id})">Ajouter l'article</button>
                     </div>
                 </div>
             </c:forEach>
             <br>
             <button class="btn btn-danger btn-lg" type="submit" onclick="validateCart()">Valider le panier</button>
+            <br>
+            <hr>
+            <%@include file="_cart.jsp" %>
         </div>
     </div>
 </div>

@@ -25,7 +25,7 @@ public class ArticleService {
      * @return The newly created article.
      */
     public Article createArticle(int price, String name, String img) {
-        return articleRepository.save(new Article(null, price, name, img));
+        return articleRepository.save(new Article(null, price, name, img, null));
     }
 
     public List<Article> getArticles() {
@@ -33,6 +33,6 @@ public class ArticleService {
     }
 
     public Article getByArticleId(Long id) {
-        return articleRepository.findById(id).get();
+        return articleRepository.findById(id).orElseThrow();
     }
 }

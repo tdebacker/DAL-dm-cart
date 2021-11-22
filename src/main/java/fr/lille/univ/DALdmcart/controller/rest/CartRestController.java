@@ -3,9 +3,9 @@ package fr.lille.univ.DALdmcart.controller.rest;
 import fr.lille.univ.DALdmcart.model.Cart;
 import fr.lille.univ.DALdmcart.service.CartService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Controller for the API to manage carts.
@@ -28,5 +28,15 @@ public class CartRestController {
     @PostMapping
     public Cart createCart() {
         return cartService.createCart(1L);
+    }
+
+    @GetMapping
+    public List<Cart> getCarts() {
+        return cartService.findCarts();
+    }
+
+    @GetMapping("/{id}")
+    public Cart getCart(@PathVariable Long id) {
+        return cartService.findCart(id);
     }
 }

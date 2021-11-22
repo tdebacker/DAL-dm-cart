@@ -5,7 +5,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import java.util.List;
 
 @Entity
@@ -19,7 +22,7 @@ public class Cart {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @OneToMany
+    @ManyToMany
     private List<Article> articles;
 
     public Cart(Long id) {
