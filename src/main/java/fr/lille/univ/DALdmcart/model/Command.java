@@ -14,7 +14,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Cart {
+public class Command {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,4 +24,11 @@ public class Cart {
     @ManyToMany
     private List<Article> articles;
 
+    @ManyToOne
+    private User user;
+
+    public Command(User user) {
+        this.user = user;
+        this.articles = new ArrayList<>();
+    }
 }

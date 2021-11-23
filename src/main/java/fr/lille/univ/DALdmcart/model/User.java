@@ -6,22 +6,27 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Cart {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @ManyToMany
-    private List<Article> articles;
+    private String username;
+
+    @OneToOne
+    private Cart activeCart;
+
+    public User(String username, Cart cart) {
+        this.username = username;
+        this.activeCart = cart;
+    }
 
 }

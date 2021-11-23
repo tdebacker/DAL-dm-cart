@@ -15,5 +15,3 @@ spring:
   h2:
     console:
       enabled: true
-broker:
-  ip: 172.18.13.117:8080

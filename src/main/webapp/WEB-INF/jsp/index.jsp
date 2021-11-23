@@ -37,12 +37,18 @@
                             Prix: <fmt:formatNumber type="currency" currencySymbol="&euro;"
                                                     value="${article.price/100.0}"/>
                         </p>
-                        <button class="btn btn-primary btn-sm" type="submit" onclick="addArticle(${article.id})">Ajouter l'article</button>
+                        <c:if test="${not empty sessionScope.auth and not empty sessionScope.username}">
+                            <button class="btn btn-primary btn-sm" type="submit"
+                                    onclick="addArticle(${article.id}, ${sessionScope.auth}, '${sessionScope.username}')">
+                                Ajouter l'article</button>
+                        </c:if>
+
                     </div>
                 </div>
             </c:forEach>
             <br>
-            <button class="btn btn-danger btn-lg" type="submit" onclick="validateCart()">Valider le panier</button>
+            <button class="btn btn-danger btn-lg" type="submit"
+                    onclick="validateCart(${sessionScope.auth}, ${sessionScope.username})">Valider le panier</button>
             <br>
             <hr>
             <%@include file="_cart.jsp" %>

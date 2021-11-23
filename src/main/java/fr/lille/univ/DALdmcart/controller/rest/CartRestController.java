@@ -27,7 +27,7 @@ public class CartRestController {
      */
     @PostMapping
     public Cart createCart() {
-        return cartService.createCart(1L);
+        return cartService.createCart();
     }
 
     @GetMapping

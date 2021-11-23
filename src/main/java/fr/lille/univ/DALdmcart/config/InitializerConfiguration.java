@@ -1,7 +1,7 @@
 package fr.lille.univ.DALdmcart.config;
 
 import fr.lille.univ.DALdmcart.service.ArticleService;
-import fr.lille.univ.DALdmcart.service.CartService;
+import fr.lille.univ.DALdmcart.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,7 +13,7 @@ public class InitializerConfiguration {
 
     ArticleService articleService;
 
-    CartService cartService;
+    UserService userService;
 
     @PostConstruct
     private void init() {
@@ -26,7 +26,8 @@ public class InitializerConfiguration {
         articleService.createArticle(450, "Fromage à raclette",
                 "https://static1.chronodrive.com/img/PM/P/0/20/0P_195420.gif");
 
-        cartService.createCart(1L);
+        userService.createDefaultUser(1L);
+        userService.createUser("toto");
     }
 
 }

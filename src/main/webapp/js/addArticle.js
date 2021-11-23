@@ -1,11 +1,11 @@
-const addArticle = (id) => {
+const addArticle = (id, auth, username) => {
     $.ajax({
         method: 'POST',
-        url: `/api/article/${id}`,
+        url: `/api/article/${id}?auth=${auth}&username=${username}`,
         dataType: "json",
         contentType: 'application/json'
     }).done((response) => {
-        getCart(1)
+        getCart(response.id)
         alert("Article n°" + id + " ajouté.")
     }).fail((xhr) => {
         console.log(JSON.parse(xhr.responseText))
