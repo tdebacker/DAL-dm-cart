@@ -40,6 +40,7 @@ public class HomeController {
     public String showHomePageWithCheckout(HttpSession session, @RequestParam boolean auth, @RequestParam String operation) {
         if(auth) {
             session.setAttribute("auth", true);
+            session.setAttribute("operation", operation);
             session.setAttribute("username", "toto");
             // TODO: requete pour recuperer l'identity du user et inserer dans model
 
